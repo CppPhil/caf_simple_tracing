@@ -1,0 +1,5 @@
+Simple networking based on caf_shiviz_trial
+ -> Lots of logging by default
+ -> Have some way to get rid off the networking and compile it
+    all into one application.
+
