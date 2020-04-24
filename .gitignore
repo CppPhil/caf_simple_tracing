@@ -108,3 +108,5 @@ tags
 # build directory
 build
 
+# log
+*_invalid-node.log
