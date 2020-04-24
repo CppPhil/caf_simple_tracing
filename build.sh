@@ -24,10 +24,13 @@ usage() {
     --help                this help text
   
   --build_type=BUILD_TYPE The build type to use (Debug | Release)
+
+  --remote=BOOL           Use io::middleman (true | false)
 EOF
 }
 
 build_type="Debug"
+remote=false
 
 while [ "$1" != "" ]; do
   PARAM=`echo $1 | awk -F= '{print $1}'`
@@ -39,6 +42,9 @@ while [ "$1" != "" ]; do
       ;;
     --build_type)
       build_type=$VALUE
+      ;;
+    --remote)
+      remote=$VALUE
       ;;
     *)
       echo "ERROR: unknown parameter \"$PARAM\""
@@ -59,7 +65,7 @@ fi
 
 cd build
 
-cmake -DCMAKE_BUILD_TYPE=$build_type -G "Unix Makefiles" ..
+cmake -DCMAKE_BUILD_TYPE=$build_type -DREMOTE=$remote -G "Unix Makefiles" ..
 cmake --build . -- -j$(nproc)
 
 cd $PREV_DIR

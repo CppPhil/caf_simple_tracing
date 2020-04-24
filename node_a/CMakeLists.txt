@@ -10,3 +10,7 @@ target_link_libraries(${NODE_A_APP_NAME} PRIVATE lib)
 
 target_include_directories(
   ${NODE_A_APP_NAME} PRIVATE ${caf_simple_tracing_SOURCE_DIR}/node_a/include)
+
+if(REMOTE)
+  target_compile_definitions(${NODE_A_APP_NAME} PRIVATE REMOTE)
+endif()

@@ -1,15 +1,15 @@
 file    : /home/phillip/Desktop/simple_caf_tracing/node_a/src/main.cpp
-line    : 22
+line    : 44
 function: void caf_main(caf::actor_system&, const {anonymous}::config&)
 message : About to spawn test_actor_function
 
 file    : /home/phillip/Desktop/simple_caf_tracing/node_a/src/main.cpp
-line    : 24
+line    : 46
 function: void caf_main(caf::actor_system&, const {anonymous}::config&)
 message : Spawned test_actor_function
 
 file    : /home/phillip/Desktop/simple_caf_tracing/node_a/src/main.cpp
-line    : 26
+line    : 48
 function: void caf_main(caf::actor_system&, const {anonymous}::config&)
 message : About to spawn test_actor_buddy_function
 
@@ -19,7 +19,7 @@ function: caf::behavior l::test_actor_function(caf::event_based_actor*)
 message : Spawned.
 
 file    : /home/phillip/Desktop/simple_caf_tracing/node_a/src/main.cpp
-line    : 28
+line    : 50
 function: void caf_main(caf::actor_system&, const {anonymous}::config&)
 message : Spawned test_actor_buddy_function
 
@@ -87,6 +87,16 @@ file    : /home/phillip/Desktop/simple_caf_tracing/lib/src/test_actor_buddy_func
 line    : 36
 function: l::test_actor_buddy_function(caf::event_based_actor*, const caf::actor&)::<lambda(const string&)>
 message : tracing_data was ok: "test_actor_function put this here"
+
+file    : /home/phillip/Desktop/simple_caf_tracing/lib/src/test_profiler.cpp
+line    : 41
+function: virtual void l::test_profiler::before_processing(const caf::local_actor&, const caf::mailbox_element&)
+message : tracing_id was null!
+
+file    : /home/phillip/Desktop/simple_caf_tracing/lib/src/test_profiler.cpp
+line    : 41
+function: virtual void l::test_profiler::before_processing(const caf::local_actor&, const caf::mailbox_element&)
+message : tracing_id was null!
 
 file    : /home/phillip/Desktop/simple_caf_tracing/lib/src/test_profiler.cpp
 line    : 41

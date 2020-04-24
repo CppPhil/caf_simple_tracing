@@ -22,6 +22,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
+option(REMOTE "Use io::middleman" ON)
+
 find_package(Threads REQUIRED)
 
 set(CAF_ENABLE_ACTOR_PROFILER
