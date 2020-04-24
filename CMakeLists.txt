@@ -5,7 +5,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(HunterGate)
 
 huntergate(URL "https://github.com/cpp-pm/hunter/archive/v0.23.249.tar.gz" SHA1
- "d45d77d8bba9da13e9290a180e0477e90accd89b")
+           "d45d77d8bba9da13e9290a180e0477e90accd89b")
 
 project(caf_simple_tracing VERSION 1.0.0)
 
@@ -17,7 +17,7 @@ string(
 string(APPEND CMAKE_CXX_FLAGS_DEBUG " -g -O0")
 string(APPEND CMAKE_CXX_FLAGS_RELEASE
        " -O3 -march=native -funroll-loops -flto -DNDEBUG")
-       
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
@@ -49,4 +49,3 @@ add_subdirectory(external/jaeger-client-cpp)
 add_subdirectory(lib)
 add_subdirectory(node_a)
 add_subdirectory(node_b)
-
