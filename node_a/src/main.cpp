@@ -1,4 +1,5 @@
 #include <caf/all.hpp>
+#include <caf/io/all.hpp>
 
 #include "log.hpp"
 #include "test_actor_buddy_function.hpp"
@@ -28,4 +29,4 @@ void caf_main(caf::actor_system& sys, const config& config) {
   L_LOG("Spawned test_actor_buddy_function");
 }
 
-CAF_MAIN()
+CAF_MAIN(caf::io::middleman)
