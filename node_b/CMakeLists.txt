@@ -1,6 +1,6 @@
 set(NODE_B_HEADERS)
 
-set(NODE_B_SOURCES)
+set(NODE_B_SOURCES src/main.cpp)
 
 set(NODE_B_APP_NAME node_b_application)
 

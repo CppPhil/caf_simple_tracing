@@ -20,9 +20,9 @@ public:
   void log(pl::string_view file, int64_t line, pl::string_view function,
            const Ts&... xs) {
     std::lock_guard<std::mutex> lock(mutex_);
-    ofs_ << fmt::format("file: {}\nline: {}\nfunction: {}\n", file.data(), line,
-                        function.line());
-    ofs_ << "message: " << fmt::format(xs...) << '\n' << std::endl;
+    ofs_ << fmt::format("file    : {}\nline    : {}\nfunction: {}\n",
+                        file.data(), line, function);
+    ofs_ << "message : " << fmt::format(xs...) << '\n' << std::endl;
   }
 
 private:
