@@ -1,5 +1,6 @@
 #include <caf/all.hpp>
 
+#include "log.hpp"
 #include "test_actor_buddy_function.hpp"
 #include "test_actor_function.hpp"
 #include "test_profiler.hpp"
@@ -18,8 +19,13 @@ struct config : caf::actor_system_config {
 } // namespace
 
 void caf_main(caf::actor_system& sys, const config& config) {
-  auto test_actor = sys.spawn(&l ::test_actor_function);
-  sys.spawn(&l ::test_actor_buddy_function, test_actor);
+  L_LOG("About to spawn test_actor_function");
+  auto test_actor = sys.spawn(&l::test_actor_function);
+  L_LOG("Spawned test_actor_function");
+
+  L_LOG("About to spawn test_actor_buddy_function");
+  sys.spawn(&l::test_actor_buddy_function, test_actor);
+  L_LOG("Spawned test_actor_buddy_function");
 }
 
 CAF_MAIN()

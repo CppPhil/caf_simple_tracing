@@ -2,6 +2,7 @@
 
 #include <fmt/format.h>
 
+#include "log.hpp"
 #include "test_profiler.hpp"
 #include "test_tracing_data.hpp"
 
@@ -35,10 +36,13 @@ void test_profiler::before_processing(const caf::local_actor& actor,
                                       const caf::mailbox_element& element) {
   const auto& trace_id = element.tracing_id;
 
-  if (trace_id == nullptr)
+  if (trace_id == nullptr) {
     fmt::print(stderr, "before_processing: tracing_id was NULLPTR!\n");
-  else
+    L_LOG("tracing_id was null!");
+  } else {
     fmt::print("before_processing: tracing_id was ok!\n");
+    L_LOG("tracing_id isn't null");
+  }
 }
 
 void test_profiler::after_processing(const caf::local_actor&,
@@ -50,8 +54,11 @@ void test_profiler::before_sending(const caf::local_actor& actor,
   if (element.tracing_id == nullptr) {
     element.tracing_id = std::make_unique<test_tracing_data>(span_context);
     fmt::print("before_sending: set tracing_id to \"{}\"\n", span_context);
-  } else
+    L_LOG("tracing_id set to \"{}\"", span_context);
+  } else {
     fmt::print(stderr, "before_sending: tracing_id wasn't null, WHAT?!?");
+    L_LOG("Unexpected: tracing_id wasn't null.");
+  }
 }
 
 void test_profiler::before_sending_scheduled(
@@ -61,8 +68,11 @@ void test_profiler::before_sending_scheduled(
     element.tracing_id = std::make_unique<test_tracing_data>(span_context);
     fmt::print("before_sending_scheduled: set tracing_id to \"{}\"\n",
                span_context);
-  } else
+    L_LOG("tracing_id set to \"{}\"", span_context);
+  } else {
     fmt::print(stderr,
                "before_sending_scheduled: tracing_id wasn't null, WHAT?!?");
+    L_LOG("Unexpected: tracing_id wasn't null.");
+  }
 }
 } // namespace l
