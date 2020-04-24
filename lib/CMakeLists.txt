@@ -1,9 +1,12 @@
 # OBJECT LIBRARY
 set(LIB_NAME lib)
 
-set(LIB_HEADERS include/log.hpp)
+set(LIB_HEADERS
+    include/log.hpp include/test_profiler.hpp include/test_tracing_data.hpp
+    include/test_tracing_data_factory.hpp)
 
-set(LIB_SOURCES src/log.cpp)
+set(LIB_SOURCES src/log.cpp src/test_profiler.cpp src/test_tracing_data.cpp
+                src/test_tracing_data_factory.cpp)
 
 add_library(${LIB_NAME} OBJECT ${LIB_HEADERS} ${LIB_SOURCES})
 
